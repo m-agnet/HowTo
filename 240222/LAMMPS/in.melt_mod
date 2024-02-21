@@ -19,6 +19,7 @@ neigh_modify	every 20 delay 0 check no
 
 fix		1 all nve
 
+# dump		id all atom 50 melt.dump
 dump		id all atom 50 output.lammpstrj # VMDでは拡張子「.lammpstrj」を認識する.
 
 #dump		2 all image 25 image.*.jpg type type &
@@ -30,4 +31,5 @@ dump		id all atom 50 output.lammpstrj # VMDでは拡張子「.lammpstrj」を認
 #dump_modify	3 pad 3
 
 thermo		50
-run		250
+# run		250
+run		2500 # 10倍にした.
