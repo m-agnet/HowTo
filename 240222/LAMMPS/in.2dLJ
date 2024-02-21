@@ -48,7 +48,7 @@ units		        lj # LJ単位系.
 atom_style	    atomic # 粒子.
 dimension       2 # 次元.
 timestep        0.005 # MDシミュレーションのtimestep.
-boundary        p f p # x=l,y=m,z=nの直線が周期境界条件.
+boundary        p f p # x=l,y=m,z=nの直線がpなら周期境界条件.
 lattice		      sq ${rho} # 粒子の初期配置. sq; 正方形セルの左隅に1つ置く.
 region		      box block ${box_xlo} ${box_xhi} ${box_ylo} ${box_yhi} -0.1 0.1 # 系の領域設定.
 region          catom block 0 ${Ax} 0 ${Ay} -0.1 0.1 # 粒子生成の領域設定.
