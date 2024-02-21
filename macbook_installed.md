@@ -10,18 +10,6 @@
 - drawio
 - ffmpeg
 
-## インストール方法
-
-### homebrew
-
-
-### LAMMPS
-
-
-### VMD
-
-
-
 # ホームディレクトリ直下のconfigまわり
 
 ## .vmdrc

@@ -50,6 +50,7 @@
 ### .ppmを.jpgに変換する
 
 もし `.ppm` を `.png` に変換したい場合は, 次のコマンドを実行します.
+
 ```bash
 ffmpeg -i output.ppm output.png
 ```
@@ -57,4 +58,4 @@ ffmpeg -i output.ppm output.png
 
 ### 半自動化プログラム
 
-[makemovie.jl](/Share/rin/julia/makemovie.jl)
+[makemovie.jl](/HowTo/julia/makemovie.jl)
