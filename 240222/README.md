@@ -10,8 +10,6 @@
 - 数値実験ツールのインストールを行い, 後代に伝えられるようにする.
 - ツールを実際に動かしてみることで, 慣れてもらうためのスタートを切る. 
 
-sss
-
 ## 本日の流れ
 
 - 初期化されたMacのセットアップ
@@ -21,6 +19,7 @@ sss
 
 ## 資料の概略
 
-- mac.md : Macのターミナルでよく使うコマンド
-- LAMMPS.md : LAMMPSについて
-- VMD.md : VMDについて
+- [mac.md](./mac.md) : Macのターミナルでよく使うコマンド
+- [LAMMPS.md](./LAMMPS.md) : LAMMPSについて
+- [VMD.md](./VMD.md) : VMDについて
+- [VSCode](./VSCode.md) : VSCodeについて
