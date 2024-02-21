@@ -2,6 +2,7 @@
 lammpsファイルの実行及び出力ファイルの保管.
 - lammpsファイル実行時に出力される*.logファイル,*.yamlファイルが指定した同一フォルダに,それぞれのフォルダを作成して保管される.
 - lammpsファイルと同一ディレクトリにあるoutputファイルは削除.
+- outputdirまでの絶対パスを任意に変更して使用してください.
 =#
 
 using Glob # *を使ってパターンマッチングするためのライブラリ.
@@ -10,7 +11,7 @@ using Dates # 日時を取得するためのライブラリ.
 # lammpsfile=glob("in.*")[1] # 実行ファイルを指定.
 lammpsfile="in.melt" # 実行ファイルを指定.
 file_extensions = ["log", "yaml", "lammpstrj"] # 扱う出力ファイルの種類を指定.
-outputpath = "/Users/2023_2gou/Desktop/r_yamamoto/HowTo/240222/LAMMPS/outputdir" # outputdirまでの絶対パス.
+outputpath = "/Users/2023_2gou/Desktop/r_yamamoto/Research/outputdir" # outputdirまでの絶対パス.
 
 n = string(now())   # 実験日時の記録
 run(`mpirun -n 4 lmp_mpi -log output.log -in $(lammpsfile)`) # lammpsの実行.
