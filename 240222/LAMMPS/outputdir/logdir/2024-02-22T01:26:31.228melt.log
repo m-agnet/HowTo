@@ -1,3 +1,4 @@
+実験日時: 2024-02-22T01:26:31.228
 LAMMPS (2 Aug 2023)
 OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
   using 1 OpenMP thread(s) per MPI task
@@ -22,7 +23,7 @@ Created orthogonal box = (0 0 0) to (16.795962 16.795962 16.795962)
 create_atoms	1 box
 Created 4000 atoms
   using lattice units in orthogonal box = (0 0 0) to (16.795962 16.795962 16.795962)
-  create_atoms CPU = 0.001 seconds
+  create_atoms CPU = 0.000 seconds
 # 原子の質量を設定
 mass		1 1.0
 
@@ -80,20 +81,20 @@ Per MPI rank memory allocation (min/avg/max) = 2.706 | 2.706 | 2.706 Mbytes
        150   1.6444751     -4.7471034      0             -2.2810074      5.8614211    
        200   1.6471542     -4.7509053      0             -2.2807916      5.8805431    
        250   1.6645597     -4.7774327      0             -2.2812174      5.7526089    
-Loop time of 0.171724 on 4 procs for 250 steps with 4000 atoms
+Loop time of 0.169819 on 4 procs for 250 steps with 4000 atoms
 
-Performance: 628916.663 tau/day, 1455.826 timesteps/s, 5.823 Matom-step/s
-99.3% CPU use with 4 MPI tasks x 1 OpenMP threads
+Performance: 635970.772 tau/day, 1472.155 timesteps/s, 5.889 Matom-step/s
+99.5% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.12309    | 0.12458    | 0.12786    |   0.5 | 72.55
-Neigh   | 0.021868   | 0.022041   | 0.022194   |   0.1 | 12.84
-Comm    | 0.014662   | 0.017987   | 0.019537   |   1.5 | 10.47
-Output  | 0.0040982  | 0.0042781  | 0.0044554  |   0.2 |  2.49
-Modify  | 0.002209   | 0.0022567  | 0.0022889  |   0.1 |  1.31
-Other   |            | 0.0005781  |            |       |  0.34
+Pair    | 0.12154    | 0.12453    | 0.12698    |   0.6 | 73.33
+Neigh   | 0.021864   | 0.022193   | 0.022356   |   0.1 | 13.07
+Comm    | 0.013844   | 0.016221   | 0.019618   |   1.8 |  9.55
+Output  | 0.0038983  | 0.0040495  | 0.0041878  |   0.2 |  2.38
+Modify  | 0.0022148  | 0.0022643  | 0.0023286  |   0.1 |  1.33
+Other   |            | 0.0005619  |            |       |  0.33
 
 Nlocal:           1000 ave        1008 max         987 min
 Histogram: 1 0 0 0 0 0 1 0 1 1

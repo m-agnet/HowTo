@@ -1,14 +1,14 @@
 #=
 lammpsファイルの実行及び出力ファイルの保管.
 - lammpsファイル実行時に出力される*.logファイル,*.yamlファイルが指定した同一フォルダに,それぞれのフォルダを作成して保管される.
-- lammpsファイルと同一ディレクトリにある*.lammpstrjファイルは削除.
+- lammpsファイルと同一ディレクトリにあるoutputファイルは削除.
 =#
 
 using Glob # *を使ってパターンマッチングするためのライブラリ.
 using Dates # 日時を取得するためのライブラリ.
 
 # lammpsfile=glob("in.*")[1] # 実行ファイルを指定.
-lammpsfile="in.logo" # 実行ファイルを指定.
+lammpsfile="in.melt" # 実行ファイルを指定.
 file_extensions = ["log", "yaml", "lammpstrj"] # 扱う出力ファイルの種類を指定.
 outputpath = "/Users/2023_2gou/Desktop/r_yamamoto/HowTo/240222/LAMMPS/outputdir" # outputdirまでの絶対パス.
 
@@ -42,6 +42,8 @@ for file_ext in file_extensions
             # lammpstrjファイルのときに行う処理を記述.
 
         end
+
+        rm(readfile)
 
     catch
         
