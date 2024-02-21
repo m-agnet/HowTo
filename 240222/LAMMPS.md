@@ -48,9 +48,12 @@ mpirun -n 4 lmp_mpi -log output.log -in in.input
 
 ## 例として使用するファイル
 
-- [in.logo](./LAMMPS/in.logo) : 公式サイトにあるファイル.
-- [in.melt_mod](./LAMMPS/in.melt_mod) : サンプルmeltに入っているファイルを編集したもの.
-- [in.2dLJ](./LAMMPS/in.2dLJ) : 私が実際に使っているコードの基本形. 
+- [in.2dLJ](./LAMMPS/in.2dLJ)
+  - 私が実際に使っているコードの基本形. 
+- [in.logo](./LAMMPS/in.logo)
+  - [LAMMPS公式サイト](https://www.lammps.org/#gsc.tab=0)にあるファイル(input script).
+- [in.melt_mod](./LAMMPS/in.melt_mod)
+  - サンプルmeltに入っているファイルを編集したもの.
 
 ## 参考になるもの
 

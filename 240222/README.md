@@ -30,9 +30,15 @@
 - LaTeX
 - GitHub
 
-## 資料の概略
+## カレントディレクトリの概略
 
-- [mac.md](./mac.md) : Macのターミナルでよく使うコマンド
-- [LAMMPS.md](./LAMMPS.md) : LAMMPSについて
-- [VMD.md](./VMD.md) : VMDについて
-- [VSCode](./VSCode.md) : VSCodeについて
+- [LAMMPS](./LAMMPS)
+  - 説明のためのLAMMPSのファイルと, juliaでの実行ファイルなどの簡易版が入っている. 
+- [LAMMPS.md](./LAMMPS.md)
+  - LAMMPSについて
+- [mac.md](./mac.md)
+  - Macのターミナルでよく使うコマンド
+- [VMD.md](./VMD.md)
+  - VMDについて
+- [VSCode](./VSCode.md)
+  -  VSCodeについて
