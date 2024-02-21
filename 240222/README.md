@@ -24,7 +24,11 @@
 - LAMMPSとVMDのインストールをしているところを眺めること. 
 - in.meltをexampleから引っ張ってきて, LAMMPSで実行, VMDで動きを確認するところまでができること. 
 
+## 他にも教えられること
 
+- VSCode
+- LaTeX
+- GitHub
 
 ## 資料の概略
 
