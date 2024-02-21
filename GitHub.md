@@ -33,7 +33,7 @@
 
 ### ローカルリポジトリでのファイル削除をリモートに反映させる
 
-```git
+```zsh
 git add -u
 git commit -m "cleanup"
 git push
