@@ -11,7 +11,7 @@
 
 カレントディレクトにあるファイルを表示する.（listの略）
 
-```bash:ターミナル
+```bash
 ls  # カレントディレクトリにあるファイルやディレクトリを表示する
 ls -a  # 隠しファイルも含めファイルやディレクトリを全て表示する
 ```
@@ -26,7 +26,7 @@ ls -a  # 隠しファイルも含めファイルやディレクトリを全て�
 
 カレントディレクトリにあるファイルに移動する.（change directoryの略）
 
-```bash:ターミナル
+```bash
 cd test.html  # testテストというファイルに移動する
 cd ~/  # ホームディレクトリに移動する
 cd ..  # 一つ上の階層のファイルに移動する
@@ -36,7 +36,7 @@ cd ..  # 一つ上の階層のファイルに移動する
 
 中身が空のファイルを作る.
 
-```bash:ターミナル
+```bash
 touch test.html  # test.htmlという中身が空のファイルを作る
 ```
 
@@ -44,7 +44,7 @@ touch test.html  # test.htmlという中身が空のファイルを作る
 
 新しい空のディレクトリを作る.（make directoryの略）
 
-```bash:ターミナル
+```bash
 mkdir testdir # testdirというディレクトリを作る
 ```
 
@@ -52,7 +52,7 @@ mkdir testdir # testdirというディレクトリを作る
 
 ファイルを移動したり, ファイル名を変更したりする.（moveの略）
 
-```bash:ターミナル
+```bash
 mv test.html tmp/  # test.htmlというファイルを相対パスでtmp/に移動する
 mv test.html test2.html  # test.htmlというファイルをtest2.htmlに名前変更する
 ```
@@ -61,7 +61,7 @@ mv test.html test2.html  # test.htmlというファイルをtest2.htmlに名前�
 
 ファイルをコピーする.（copyの略）
 
-```bash:ターミナル
+```bash
 cp test.html tmp/  # test.htmlを相対パスでtmp/というディレクトリの中にコピーする
 cp test.html test2.html  # test.htmlをtest2.htmlという名前でコピーする
 cp −r dir /tmp/  # dirというディレクトリとその中身を絶対パスで/tmp/にそっくりコピーする
@@ -71,7 +71,7 @@ cp −r dir /tmp/  # dirというディレクトリとその中身を絶対パ�
 
 ファイルを削除する.（removeの略）
 
-```bash:ターミナル
+```bash
 rm test.html  # test.htmlを削除する
 rm *.ppm  # 拡張子.ppmのファイルをすべて削除する
 rm -r test  # testというディレクトリとその中身を削除する
@@ -88,7 +88,7 @@ rmコマンドは取り返しのつかないファイルの削除になります
 
 ターミナルからFinderでファイルを開く.
 
-```bash:ターミナル
+```bash
 open .  # 現在のターミナルのディレクトリFinderで開く
 open ~/  # ホームディレトリをFinderで開く
 ```
