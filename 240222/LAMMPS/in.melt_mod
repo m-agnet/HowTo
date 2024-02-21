@@ -1,7 +1,7 @@
 # 3d Lennard-Jones melt
 
 units		lj
-atom_styleA	atomic
+atom_style	atomic
 
 lattice		fcc 0.8442
 region		box block 0 10 0 10 0 10
@@ -19,7 +19,7 @@ neigh_modify	every 20 delay 0 check no
 
 fix		1 all nve
 
-#dump		id all atom 50 dump.melt
+dump		id all atom 50 output.lammpstrj # VMDでは拡張子「.lammpstrj」を認識する.
 
 #dump		2 all image 25 image.*.jpg type type &
 #		axes yes 0.8 0.02 view 60 -30

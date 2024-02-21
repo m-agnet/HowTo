@@ -16,6 +16,7 @@
 - LAMMPSとVMDを用いた数値実験の流れを紹介
 - 初期化されたMacのセットアップ
 - LAMMPSとVMDのインストール
+  - LAMMPSのexampleをデスクトップにコピー
 - LAMMPSを動かしてみる
 
 ## 到達目標
