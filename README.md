@@ -1,6 +1,6 @@
 # HowTo
 
-URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git) ⌘クリックで開ける.
 
 ## カレントディレクトリの概略
 

@@ -3,7 +3,7 @@
 
 - 開催日時: 2024/2/22(木) 13:00から
 - 場所: E402
-- URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+- URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git) ⌘クリックで開ける.
   
 ## 目的
 
