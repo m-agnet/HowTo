@@ -15,8 +15,11 @@ URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git
 - [PresentationSchedule](./PresentationSchedule)
   - 卒研発表の日程表を作成するためのフォルダ.
 - [GitHub.md](./GitHub.md)
+  - GitHubについて.
 - [LaTeX.md](./LaTeX.md)
+  - LaTeXについて.
 - [macbook_installed.md](./macbook_installed.md)
+  - 私が使用しているMac bookにインストールしたソフトや, ホームディレクトリ直下のconfigを記載したもの.
 - [makemovie.md](./makemovie.md)
   - VMDを使った動画の作り方.
 - [ness.md](./ness.md)
