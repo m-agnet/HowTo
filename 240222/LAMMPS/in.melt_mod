@@ -1,7 +1,7 @@
 # 3d Lennard-Jones melt
 
-units		lj
-atom_style	atomic
+units		lj # LJ単位系.
+atom_style	atomic # 粒子.
 
 lattice		fcc 0.8442
 region		box block 0 10 0 10 0 10

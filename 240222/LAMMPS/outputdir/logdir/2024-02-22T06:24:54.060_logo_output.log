@@ -1,23 +1,21 @@
-実験日時: 2024-02-22T01:22:56.450
+実験日時: 2024-02-22T06:24:54.060
 LAMMPS (2 Aug 2023)
 OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
   using 1 OpenMP thread(s) per MPI task
 # LAMMPSロゴのシミュレーション
 
 
-units		lj  # LJ単位系を設定
-atom_style	atomic  # 原子スタイルを原子型に設定
-dimension	2   # シミュレーションの次元を2Dに設定
+units		lj  # LJ単位系.
+atom_style	atomic  # 粒子.
+dimension	2   # 次元.
 
-# 低密度の2D格子を作成し、拡散を可能にする
-# 格子は平方根2/2の正方形で、原点は(0.25, 0.25, 0.0)にシフトされている
-lattice		sq2 0.5 origin 0.25 0.25 0.0
+lattice		sq2 0.5 origin 0.25 0.25 0.0  # 粒子の初期配置.
 Lattice spacing in x,y,z = 2 2 2
-region		box block 0 31 0 7 -0.5 0.5 # シミュレーションボックス領域を定義
-create_box	2 box   # 2種類の原子を持つシミュレーションボックスを作成
+region		box block 0 31 0 7 -0.5 0.5 # 系の領域設定.
+create_box	2 box    # 系の生成.
 Created orthogonal box = (0 0 -1) to (62 14 1)
   4 by 1 by 1 MPI processor grid
-create_atoms	1 box   # タイプ1の原子をシミュレーションボックス内に作成
+create_atoms	1 box   # 粒子の生成.
 Created 434 atoms
   using lattice units in orthogonal box = (0 0 -1) to (62 14 1)
   create_atoms CPU = 0.000 seconds
@@ -28,12 +26,12 @@ region	        L1 block 2 3 1 6 -0.5 0.5
 region	        L2 block 2 5 1 2 -0.5 0.5
 region		L union 2 L1 L2
 
-# 文字領域内の原子をタイプ2に変換する
+# 文字領域内の原子はタイプ2
 set		region L type 2
 Setting atom values ...
   14 settings made for type
 
-# A、M(1M、2M)、P、Sの文字に対応する類似の領域が定義されている
+# A, M(1M, 2M), P, Sの文字に対応する類似の領域が定義されている
 
 region	        A1 block 6 7 1 6 -0.5 0.5
 region	        A2 block 8 9 1 6 -0.5 0.5
@@ -72,25 +70,23 @@ Setting atom values ...
   140 settings made for type
 
 
-# 質量、ペアスタイル、ペア係数などのシステムパラメータを定義
-mass		* 1.0
+mass		* 1.0 # 粒子の設定.
+
+# 粒子-粒子間相互作用ポテンシャル
 pair_style	lj/cut 2.5
 pair_coeff	* * 1.0 1.0 2.5
 
-# シミュレーションのタイムステップを設定
-timestep        0.005
-# 近接原子探索のスキンサイズとビンサイズを設定
+timestep        0.005 # MDシミュレーションのtimestep.
+
+# 高速化コマンド. neighbor list に入れる距離指定.
 neighbor	0.3 bin
-# 近接リストの変更
 neigh_modify	delay 0 every 1 check yes
 
-# 全原子の速度を初期化
-velocity	all create 2.0 87287 loop geom
+velocity	all create 2.0 87287 loop geom # 全原子の速度を初期化.
 
-# 熱力学情報の出力頻度を設定
-thermo		100
-# 20タイムステップごとに原子位置をscript.lammpstrjというファイルにダンプ
-dump		1 all atom 20 output.lammpstrj
+
+thermo		100 # 熱力学情報の出力頻度を設定
+dump		1 all atom 20 output.lammpstrj # 20タイムステップごとに原子位置をoutput.lammpstrjというファイルにダンプ
 
 # 100ステップのシミュレーションを積分せずに実行して"一時停止"させる
 run		100
@@ -112,20 +108,20 @@ Per MPI rank memory allocation (min/avg/max) = 3.049 | 3.049 | 3.049 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
          0   2             -0.99804688     0              0.99734483    -0.30894477   
        100   2             -0.99804688     0              0.99734483    -0.30894477   
-Loop time of 0.00116527 on 4 procs for 100 steps with 434 atoms
+Loop time of 0.000720709 on 4 procs for 100 steps with 434 atoms
 
-Performance: 37072929.188 tau/day, 85816.966 timesteps/s, 37.245 Matom-step/s
-97.7% CPU use with 4 MPI tasks x 1 OpenMP threads
+Performance: 59940995.582 tau/day, 138752.305 timesteps/s, 60.219 Matom-step/s
+97.5% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.00035054 | 0.00036203 | 0.0003735  |   0.0 | 31.07
+Pair    | 0.00021417 | 0.00022208 | 0.00023021 |   0.0 | 30.81
 Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 0.00027046 | 0.00028069 | 0.00029079 |   0.0 | 24.09
-Output  | 0.00030158 | 0.00036015 | 0.00041383 |   0.0 | 30.91
-Modify  | 8.33e-06   | 8.5125e-06 | 8.628e-06  |   0.0 |  0.73
-Other   |            | 0.0001539  |            |       | 13.21
+Comm    | 0.00016495 | 0.0001726  | 0.0001802  |   0.0 | 23.95
+Output  | 0.00018658 | 0.00022452 | 0.00025929 |   0.0 | 31.15
+Modify  | 5.292e-06  | 5.4205e-06 | 5.625e-06  |   0.0 |  0.75
+Other   |            | 9.608e-05  |            |       | 13.33
 
 Nlocal:          108.5 ave         112 max         105 min
 Histogram: 2 0 0 0 0 0 0 0 0 2
@@ -139,10 +135,9 @@ Ave neighs/atom = 4
 Neighbor list builds = 0
 Dangerous builds = 0
 
-# シミュレーションをNVEアンサンブルで実行し、2Dの制約を強制して格子を溶解させる
-fix		1 all nve
-fix		2 all enforce2d
-run		1000
+fix		1 all nve # 原子1についてNVEアンサンブルでシミュレーション.
+fix		2 all enforce2d # 原子2のz次元の速度と力をゼロ.
+run		1000 # 実行
 Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
 Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
@@ -157,20 +152,20 @@ Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
        900   2.0764923     -1.0840028      0              0.98770493     1.9734716    
       1000   2.0925786     -1.0997401      0              0.98801686     1.9062961    
       1100   2.1121628     -1.1187755      0              0.9885206      1.8173042    
-Loop time of 0.0238882 on 4 procs for 1000 steps with 434 atoms
+Loop time of 0.0129776 on 4 procs for 1000 steps with 434 atoms
 
-Performance: 18084251.703 tau/day, 41861.694 timesteps/s, 18.168 Matom-step/s
-97.3% CPU use with 4 MPI tasks x 1 OpenMP threads
+Performance: 33288143.266 tau/day, 77055.887 timesteps/s, 33.442 Matom-step/s
+97.9% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.0053629  | 0.0059973  | 0.0065042  |   0.5 | 25.11
-Neigh   | 0.0028302  | 0.0029691  | 0.00315    |   0.2 | 12.43
-Comm    | 0.0062677  | 0.0069012  | 0.0075261  |   0.6 | 28.89
-Output  | 0.0036301  | 0.0042691  | 0.0048611  |   0.7 | 17.87
-Modify  | 0.0010176  | 0.0011631  | 0.0015044  |   0.6 |  4.87
-Other   |            | 0.002588   |            |       | 10.84
+Pair    | 0.0032941  | 0.003474   | 0.0037647  |   0.3 | 26.77
+Neigh   | 0.0016986  | 0.0017901  | 0.0019524  |   0.2 | 13.79
+Comm    | 0.0026226  | 0.0030641  | 0.0032725  |   0.5 | 23.61
+Output  | 0.0022112  | 0.0026582  | 0.0030511  |   0.6 | 20.48
+Modify  | 0.00061142 | 0.00063554 | 0.00070195 |   0.0 |  4.90
+Other   |            | 0.001356   |            |       | 10.45
 
 Nlocal:          108.5 ave         113 max         104 min
 Histogram: 1 0 1 0 0 0 0 1 0 1
@@ -184,10 +179,10 @@ Ave neighs/atom = 5.7903226
 Neighbor list builds = 149
 Dangerous builds = 0
 
-# インテグレータなしでシミュレーションを実行して、可視化を一時停止する
+# 設定を解除してシミュレーションを実行, 可視化を一時停止する.
 unfix		1
 unfix		2
-run		200
+run		200 # 実行
 WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
 Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
 Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
@@ -195,20 +190,20 @@ Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
       1100   2.1121628     -1.1187755      0              0.9885206      1.8173042    
       1200   2.1121628     -1.1187755      0              0.9885206      1.8173042    
       1300   2.1121628     -1.1187755      0              0.9885206      1.8173042    
-Loop time of 0.00356077 on 4 procs for 200 steps with 434 atoms
+Loop time of 0.00157192 on 4 procs for 200 steps with 434 atoms
 
-Performance: 24264409.609 tau/day, 56167.615 timesteps/s, 24.377 Matom-step/s
-96.8% CPU use with 4 MPI tasks x 1 OpenMP threads
+Performance: 54964742.885 tau/day, 127233.201 timesteps/s, 55.219 Matom-step/s
+97.8% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.00088704 | 0.00098562 | 0.0012089  |   0.0 | 27.68
+Pair    | 0.00049629 | 0.00053452 | 0.00056333 |   0.0 | 34.00
 Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 0.0010081  | 0.001224   | 0.0013355  |   0.4 | 34.38
-Output  | 0.00078625 | 0.00091431 | 0.001026   |   0.0 | 25.68
-Modify  | 1.6771e-05 | 2.0579e-05 | 3.0751e-05 |   0.0 |  0.58
-Other   |            | 0.0004162  |            |       | 11.69
+Comm    | 0.00032979 | 0.00035889 | 0.00039613 |   0.0 | 22.83
+Output  | 0.00040117 | 0.00047929 | 0.00054737 |   0.0 | 30.49
+Modify  | 1.0367e-05 | 1.0611e-05 | 1.0833e-05 |   0.0 |  0.68
+Other   |            | 0.0001886  |            |       | 12.00
 
 Nlocal:          108.5 ave         113 max         104 min
 Histogram: 1 0 1 0 0 0 0 1 0 1
@@ -222,15 +217,14 @@ Ave neighs/atom = 5.7903226
 Neighbor list builds = 0
 Dangerous builds = 0
 
-# 原子の速度を反転させ、シミュレーションを継続する
-# ロゴと格子は丸め誤差内で再結合するはずです
+# 原子の速度を反転させ, シミュレーションを継続する.
 variable        vxflip atom -vx
 variable        vyflip atom -vy
 velocity	all set v_vxflip v_vyflip NULL
 
-fix		1 all nve
-fix		2 all enforce2d
-run		1000
+fix		1 all nve # 原子1についてNVEアンサンブルでシミュレーション.
+fix		2 all enforce2d # 原子2のz次元の速度と力をゼロ.
+run		1000 # 実行
 Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
 Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
@@ -245,20 +239,20 @@ Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
       2100   2.0862412     -1.0931396      0              0.98829461     1.9907525    
       2200   2.0703661     -1.0764589      0              0.98913673     1.8474043    
       2300   2             -0.99804688     0              0.99734483    -0.30894477   
-Loop time of 0.0208304 on 4 procs for 1000 steps with 434 atoms
+Loop time of 0.0128871 on 4 procs for 1000 steps with 434 atoms
 
-Performance: 20738944.930 tau/day, 48006.817 timesteps/s, 20.835 Matom-step/s
-96.8% CPU use with 4 MPI tasks x 1 OpenMP threads
+Performance: 33521936.907 tau/day, 77597.076 timesteps/s, 33.677 Matom-step/s
+97.6% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.0053766  | 0.0055802  | 0.0057945  |   0.2 | 26.79
-Neigh   | 0.0027775  | 0.0028907  | 0.0030478  |   0.2 | 13.88
-Comm    | 0.0040237  | 0.0044035  | 0.00473    |   0.4 | 21.14
-Output  | 0.0044426  | 0.0050551  | 0.005628   |   0.6 | 24.27
-Modify  | 0.0010017  | 0.0010259  | 0.0010723  |   0.1 |  4.92
-Other   |            | 0.001875   |            |       |  9.00
+Pair    | 0.0033114  | 0.0034559  | 0.0036741  |   0.2 | 26.82
+Neigh   | 0.0017111  | 0.0017664  | 0.0018087  |   0.1 | 13.71
+Comm    | 0.0029218  | 0.0031247  | 0.0034114  |   0.3 | 24.25
+Output  | 0.0021597  | 0.0026051  | 0.0029985  |   0.6 | 20.21
+Modify  | 0.00060339 | 0.00062772 | 0.00065822 |   0.0 |  4.87
+Other   |            | 0.001307   |            |       | 10.14
 
 Nlocal:          108.5 ave         109 max         108 min
 Histogram: 2 0 0 0 0 0 0 0 0 2
@@ -272,30 +266,30 @@ Ave neighs/atom = 4.640553
 Neighbor list builds = 149
 Dangerous builds = 0
 
-# 再びインテグレータなしでシミュレーションを実行して可視化を一時停止する
+# 再び設定を解除してシミュレーションを実行, 可視化を一時停止する.
 unfix		1
 unfix		2
-run		100
+run		100 # 実行
 WARNING: No fixes with time integration, atoms won't move (src/verlet.cpp:60)
 Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
 Per MPI rank memory allocation (min/avg/max) = 4.053 | 4.053 | 4.053 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
       2300   2             -0.99804688     0              0.99734483    -0.30894477   
       2400   2             -0.99804688     0              0.99734483    -0.30894477   
-Loop time of 0.00116341 on 4 procs for 100 steps with 434 atoms
+Loop time of 0.000752271 on 4 procs for 100 steps with 434 atoms
 
-Performance: 37132351.045 tau/day, 85954.516 timesteps/s, 37.304 Matom-step/s
-97.7% CPU use with 4 MPI tasks x 1 OpenMP threads
+Performance: 57426113.728 tau/day, 132930.819 timesteps/s, 57.692 Matom-step/s
+97.2% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.00035929 | 0.00036134 | 0.00036383 |   0.0 | 31.06
+Pair    | 0.00022234 | 0.00022339 | 0.00022438 |   0.0 | 29.70
 Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 0.00026353 | 0.00026547 | 0.00026696 |   0.0 | 22.82
-Output  | 0.00031937 | 0.00037841 | 0.00043071 |   0.0 | 32.53
-Modify  | 8.371e-06  | 8.4882e-06 | 8.589e-06  |   0.0 |  0.73
-Other   |            | 0.0001497  |            |       | 12.87
+Comm    | 0.00016237 | 0.0001644  | 0.00016601 |   0.0 | 21.85
+Output  | 0.00021342 | 0.00025212 | 0.00028625 |   0.0 | 33.52
+Modify  | 5.042e-06  | 5.1803e-06 | 5.458e-06  |   0.0 |  0.69
+Other   |            | 0.0001072  |            |       | 14.25
 
 Nlocal:          108.5 ave         109 max         108 min
 Histogram: 2 0 0 0 0 0 0 0 0 2

@@ -14,6 +14,7 @@ file_extensions = ["log", "yaml", "lammpstrj"] # 扱う出力ファイルの種�
 outputpath = "/Users/2023_2gou/Desktop/r_yamamoto/HowTo/240222/LAMMPS/outputdir" # outputdirまでの絶対パス.
 
 n = string(now())   # 実験日時の記録
+remark = "melt_mod"
 run(`mpirun -n 4 lmp_mpi -log output.log -in $(lammpsfile)`) # lammpsの実行.
 
 # 出力ファイルの保管.
@@ -23,7 +24,7 @@ for file_ext in file_extensions
     try
         readfile = glob("*.$(file_ext)")[1] # 読み込みファイルを指定.
         script = read(readfile, String) # 読み込みファイルを読み込む.
-        writepath = joinpath(outputpath, "$(file_ext)dir", "$(n)$(readfile)") # 書き込みファイルの絶対パス.
+        writepath = joinpath(outputpath, "$(file_ext)dir", "$(n)_$(remark)_$(readfile)") # 書き込みファイルの絶対パス.
         fp = open(writepath, "w") # 書き込みファイルを作成して開く.
 
         if file_ext == "log" 

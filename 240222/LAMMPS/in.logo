@@ -5,8 +5,6 @@ units		lj  # LJ単位系.
 atom_style	atomic  # 粒子.
 dimension	2   # 次元.
 
-# 低密度の2D格子を作成し, 拡散を可能にする
-# 格子は平方根2/2の正方形で, 原点は(0.25, 0.25, 0.0)にシフトされている
 lattice		sq2 0.5 origin 0.25 0.25 0.0  # 粒子の初期配置.
 region		box block 0 31 0 7 -0.5 0.5 # 系の領域設定.
 create_box	2 box    # 系の生成.
@@ -18,7 +16,7 @@ region	        L1 block 2 3 1 6 -0.5 0.5
 region	        L2 block 2 5 1 2 -0.5 0.5
 region		L union 2 L1 L2
 
-# 文字領域内の原子をタイプ2に変換する
+# 文字領域内の原子はタイプ2
 set		region L type 2
 
 # A, M(1M, 2M), P, Sの文字に対応する類似の領域が定義されている
@@ -59,6 +57,7 @@ set		region LAMMPS type 2
 
 
 mass		* 1.0 # 粒子の設定.
+
 # 粒子-粒子間相互作用ポテンシャル
 pair_style	lj/cut 2.5
 pair_coeff	* * 1.0 1.0 2.5
@@ -71,10 +70,9 @@ neigh_modify	delay 0 every 1 check yes
 
 velocity	all create 2.0 87287 loop geom # 全原子の速度を初期化.
 
-# 熱力学情報の出力頻度を設定
-thermo		100
-# 20タイムステップごとに原子位置をscript.lammpstrjというファイルにダンプ
-dump		1 all atom 20 output.lammpstrj
+
+thermo		100 # 熱力学情報の出力頻度を設定
+dump		1 all atom 20 output.lammpstrj # 20タイムステップごとに原子位置をoutput.lammpstrjというファイルにダンプ
 
 # 100ステップのシミュレーションを積分せずに実行して"一時停止"させる
 run		100
