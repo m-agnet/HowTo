@@ -19,7 +19,7 @@ brew install lammps
 
 以下のコマンドをLAMMPSファイルのディレクトリ上で実行する.
 
-LAMMPSファイルは「in. が接頭についている.
+LAMMPSファイルは「in.」 が接頭についている.
 
 ```zsh
 mpirun -n 4 lmp_mpi -log output.log -in in.title
