@@ -33,7 +33,6 @@ variable        sigma_wall equal 0.5+${Rt} # LJポテンシャルのsigma; 衝�
 variable        rc_wall equal 1.122462+${Ra} # WCAポテンシャルになるようなカットオフ長+alpha*sigma_wall.
 
 # 領域関係のパラメータ
-  # 縦長のとき
 variable        box_xlo equal 0 # xの小さい方の直線.
 variable        box_xhi equal ${Ax} # xの大きい方の直線.
 variable        box_ylo equal -${gap} # yの小さい方の直線.
@@ -57,7 +56,6 @@ create_atoms    1 region catom # 粒子の生成.
 mass		        1 1.0 # 粒子の設定.
 velocity	      all create ${T} ${SEED} dist gaussian # 粒子に温度tを目標とする初期速度をガウス分布に従って与える.
 
-  # 縦長のとき
 region          cold block INF INF ${coldlo} ${coldhi} -0.1 0.1 # 熱浴Cの領域.
 region          hot block  INF INF ${hotlo} ${hothi} -0.1 0.1 # 熱浴Hの領域.
 
@@ -78,7 +76,6 @@ neigh_modify    every 1 delay 0 check yes
 fix		          1 all nve
 
 # 壁-粒子間相互作用ポテンシャル
-# 縦長のとき
 fix             wallylo all wall/lj126 ylo EDGE ${epsilon_wall} ${sigma_wall} ${rc_wall} units box pbc yes
 fix             wallyhi all wall/lj126 yhi EDGE ${epsilon_wall} ${sigma_wall} ${rc_wall} units box pbc yes
 
@@ -106,12 +103,12 @@ compute         CoM all com # c_CoM[1]でXg, c_CoM[2]でYgを取得.
 
 
 # 出力コマンド
-# VMD
+# lammpstrj
 dump		    id all custom ${dump} output.lammpstrj id x y vx vy
 
 # 画像
-dump		    2 all image ${image_step} image.*.jpg type type
-dump_modify	    2 pad 3
+# dump		    2 all image ${image_step} image.*.jpg type type
+# dump_modify	    2 pad 3
 
 # log
 thermo_style    custom step time temp pe ke etotal c_CoM[2] # 出力する物理量.
