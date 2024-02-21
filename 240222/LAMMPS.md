@@ -354,6 +354,6 @@ thermo_modify norm no # 示量的な熱力学量に調整.
 run		          ${run} # 実行.
 ```
 
-## 参考になる記事
+## 参考
 
-[Pythonを用いて, 初期条件を指定する方法.](https://zenn.dev/kaityo256/articles/md_initial_condition)
+<!-- [Pythonを用いて, 初期条件を指定する方法.](https://zenn.dev/kaityo256/articles/md_initial_condition) -->
