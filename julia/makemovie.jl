@@ -1,6 +1,7 @@
 # makemovieディレクトリで実行する.
 # 必要に応じてコメントアウトを解除してください.
 
+
 # 画像群を用いて動画を作成
 run(`ffmpeg -r 15 -i untitled.%05d.ppm -vcodec libx264 -pix_fmt yuv420p -r 30 output.mp4`)
 
