@@ -6,7 +6,7 @@
 - ゼミ資料を簡単に見やすく作りたい方.
 - Wordで卒論を書こうとしてる方.
 - TeXのコンパイルを自動化したい方.
-- 先駆者のusepackageを参考にしたい方.
+- 私のusepackageを参考にしたい方.
 
 ## 目次
 
@@ -138,6 +138,15 @@
 \end{figure}
 ```
 
+## 以上のusepackage群の思想
+
+- 数式全てに番号を振ることはせずに, 相互参照をする数式にだけ自動で番号が割り振られるようにしている. 
+  - そのため, `\algin`と`\align*`を使い分けるといったことがない.
+  - また, 資料が肥大化した時に簡潔で見やすいものになる.
+- `\usepackage{pysics}`を用いて楽に執筆することを推奨している.
+  - 誰かと共同編集するのであれば, その限りではない.
+
+
 ## VScodeでの執筆をより快適にするために
 
 ### .latexmkrcの設定
@@ -183,7 +192,6 @@ if ($^O eq 'linux') {
     $dvi_previewer = "start %S";
     $pdf_previewer = "start %S";
 }
-
 ```
 
 ### settings.json ビルドの設定
@@ -192,8 +200,8 @@ if ($^O eq 'linux') {
 
 以降, texファイルの保存のたびに自動でpdfがビルドされ, プレビューを確認することができるようになる.
 
-ビルドコマンド「option(alt)+command(ctl)+B」
-プレビューコマンド「option(alt)+command(ctl)+V」
+- 「⌥⌘B」ビルドコマンド
+- 「⌥⌘V」プレビューコマンド
 
 ```json
 {
@@ -371,12 +379,11 @@ VScodeの左下にある「管理->ユーザスニペット」からlatex.json�
         "description": "レポート用テンプレート"
     }
 }
-
 ```
 
 ## 参考になる記事
 
-[pysics パッケージの使い方(お勧め!!)](http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf)
+[pysics パッケージの使い方(オススメ!!)](http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf)
 
 [latex-の数式環境って種類が多い](https://qiita.com/Yarakashi_Kikohshi/items/ef693d7abb195c55af7a#latex-の数式環境って種類が多い "https://qiita.com/Yarakashi_Kikohshi/items/ef693d7abb195c55af7a#latex-の数式環境って種類が多い")
 
@@ -384,6 +391,6 @@ VScodeの左下にある「管理->ユーザスニペット」からlatex.json�
 
 ## 
 
-最後まで読んでくれてありがとう! 
+長い資料となったけど最後まで読んでくれてありがとう! 
 
-快適なツールを用いて, 良い研究室ライフを!!
+快適にLaTeXを用いて, 良い研究室ライフを!!
