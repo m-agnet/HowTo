@@ -6,6 +6,9 @@ URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git
 
 - [240222](./240222)
   - LAMMPSトライアルの内容.
+- [julia](./julia)
+  - 山本が使用しているjuliaコード
+- [lammps](./lammps)
 - [GitHub.md](./GitHub.md)
 - [LaTeX.md](./LaTeX.md)
 - [macbook_installed.md](./macbook_installed.md)
