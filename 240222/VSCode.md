@@ -13,7 +13,7 @@ brew install visual-studio-code
 
 初期設定は英語のため, 日本語にするために以下の設定を行う
 
-- サイドバーの上から５つ目のアイコン（Extensions）をクリックし, 「Japanese」と入力
+- Extensionをクリック(⇧⌘X)し, 「Japanese」と入力
 ![スクリーンショット 2023-04-09 午前11.48.58.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2674841/88e83c82-87c7-b852-48b2-ea3cfd25ac46.png)
 
 - 一番上の「Japanese Language Pack for Visual Studio Code」を選択し, 「Install」をクリック
@@ -41,7 +41,7 @@ brew install visual-studio-code
 
 以下の作業を行うと, ターミナルからVSCodeを簡単に開くことができる
 
-- コマンドパレット（command + shift + p）を起動し, `shell`と入力
+- コマンドパレット（⇧⌘P）を起動し, `shell`と入力
 ![スクリーンショット 2023-04-09 午後4.00.31.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2674841/aa1f6c0a-fb32-3260-8117-4130abceb44e.png)
 
 - 「シェルコマンド: PATH内に 'code' コマンドをインストールします」を選択
