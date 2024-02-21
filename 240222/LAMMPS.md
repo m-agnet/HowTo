@@ -22,7 +22,7 @@ brew install lammps
 LAMMPSファイルは「in. が接頭についている.
 
 ```zsh
-mpirun -n 4 lmp_mpi -log title.log -in in.title
+mpirun -n 4 lmp_mpi -log output.log -in in.title
 ```
 
 ## 例として使用するファイル
