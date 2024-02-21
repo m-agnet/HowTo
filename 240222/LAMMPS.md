@@ -15,15 +15,25 @@ brew install lammps
 
 `/opt/homebrew/share/lammps/examples/` にLAMMPSのサンプルが入っていれば成功.
 
-## 実行コマンド
+## 実行してみよう
 
-以下のコマンドをLAMMPSファイルのディレクトリ上で実行する.
+とりあえず実行をするには, 以下のコマンドをLAMMPSファイルのディレクトリ上で走らせる.
 
-LAMMPSファイルは「in.」 が接頭についている.
+※LAMMPSファイルは「in.」 が接頭についている.
 
 ```zsh
-mpirun -n 4 lmp_mpi -log output.log -in in.title
+mpirun -n 4 lmp_mpi -log output.log -in in.input
 ```
+
+私はLAMMPSの実行によって, 拡張子がそれぞれ, 「.log」「.lammpstrj」「.yaml」の3つのファイルを出力するようにしている. 
+
+- .log : 実験ログの確保のために出力. 
+  - これのタイトルと同一の出力ファイルがもともとどのような系の設定から生まれたものなのかを確認するのにマストで出力している. 
+- .lammpstrj : VMDで系の動きを確認するのに使用する. 
+  - データサイズが大きくなるので注意が必要.
+- .yaml : データ分析をする際に, 各物理量を取得するのに重宝. 
+
+
 
 ## 例として使用するファイル
 
