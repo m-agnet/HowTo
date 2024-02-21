@@ -61,7 +61,9 @@ color Display Background white
 
 これにより, 軸表示がなくなり、白い背景で起動するようになる.
 
+## 参考
 
+[VMD起動時の設定を変更する](https://qiita.com/tacoma/items/c2466b2660f38c438ea7)
 
 
 
