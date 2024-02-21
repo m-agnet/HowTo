@@ -1,54 +1,33 @@
-# 3次元のLennard-Jones溶融体
+# 3d Lennard-Jones melt
 
-# LJ単位系を使用
 units		lj
+atom_styleA	atomic
 
-# 原子スタイルを原子型に設定
-atom_style	atomic
-
-# 粒子の初期配置: fcc格子を使用して, 数密度を0.8442に設定
 lattice		fcc 0.8442
-# シミュレーションボックス領域を定義
 region		box block 0 10 0 10 0 10
-# 1つのボックス内に1種類の原子を作成
 create_box	1 box
-# タイプ1の原子をシミュレーションボックス内に作成
 create_atoms	1 box
-# 原子の質量を設定
 mass		1 1.0
 
-# 全原子に初期速度を設定
 velocity	all create 3.0 87287 loop geom
 
-# LJポテンシャルをカットオフ半径2.5で適用
 pair_style	lj/cut 2.5
-# LJポテンシャルの係数を設定
 pair_coeff	1 1 1.0 1.0 2.5
 
-# 近接原子探索のスキンサイズとビンサイズを設定
 neighbor	0.3 bin
-# 近接リストの修正頻度を設定
 neigh_modify	every 20 delay 0 check no
 
-# NVEアンサンブルを用いて全原子を修正
 fix		1 all nve
 
-# 溶融体の原子の位置を50ステップごとにファイルにダンプ
-dump		id all atom 50 output.lammpstrj
+#dump		id all atom 50 dump.melt
 
-# # 溶融体の状態を画像として25ステップごとにファイルにダンプ
-# dump		2 all image 25 image.*.jpg type type &
-# 		axes yes 0.8 0.02 view 60 -30
-# # 画像のパディングを設定
-# dump_modify	2 pad 3
-
-# 動画ファイルへの溶融体の状態のダンプ
-# dump		3 all movie 25 movie.mpg type type &
+#dump		2 all image 25 image.*.jpg type type &
 #		axes yes 0.8 0.02 view 60 -30
-# 動画のパディングを設定
-# dump_modify	3 pad 3
+#dump_modify	2 pad 3
 
-# 熱力学情報の出力頻度を設定
+#dump		3 all movie 25 movie.mpg type type &
+#		axes yes 0.8 0.02 view 60 -30
+#dump_modify	3 pad 3
+
 thermo		50
-# シミュレーションを250ステップ実行
 run		250
