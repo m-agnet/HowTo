@@ -1,6 +1,8 @@
 
 # はじめてのVMD 
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## インストール方法
 
 [公式サイトのダウンロードページ](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD)からダウンロードの手続きを行う.

@@ -1,5 +1,7 @@
 # ssh接続計算機の作りかた.
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 E401室内の計算機にssh接続するときの備忘録.
 
 ## mac初期化

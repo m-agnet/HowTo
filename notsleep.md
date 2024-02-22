@@ -1,6 +1,8 @@
 
 # MacBookを閉じたときにスリープするのを防ぐ方法
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ノートパソコンでLAMMPSを回しているときに, スリープモードに入ると計算を中断してしまいます.
 
 MacBook の蓋を閉じたときも含め, すべてのスリープ機能を一時的に無効にする方法です.

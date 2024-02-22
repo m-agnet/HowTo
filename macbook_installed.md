@@ -1,6 +1,8 @@
 
 # 私がインストールしたもの
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 - homebrew
 - lammps
 - vmd

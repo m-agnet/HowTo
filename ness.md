@@ -1,5 +1,7 @@
 # 計算機の使い方 -簡易ver.-
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## 想定する読者
 
 - とりあえず計算機クラスターを使ってみたい!!という人を対象としている.
@@ -72,3 +74,5 @@ ssh接続していないターミナルで実行する.  なぜ`*`と`-r`が双�
     scp -r {USER}@ness1:~/path {localpath}
     例: scp -r r.yamamoto@ness1:~/Research/outputdir/lammpstrjdir ~/Desktop/r_yamamoto/outputdir_ssh/
     ```
+
+私が利用したjuliaファイルを置いておく.

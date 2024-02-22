@@ -1,6 +1,8 @@
 
 # Macコマンド一覧
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## ディレクトリとは
 
 - ディレクトリ : フォルダのこと.

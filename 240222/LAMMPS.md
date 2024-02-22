@@ -1,6 +1,8 @@
 
 # はじめてのLAMMPS
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## インストール方法
 
 CUIのソフトを簡単に管理できるというHomebrewを用いる. 

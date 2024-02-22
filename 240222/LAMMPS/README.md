@@ -1,6 +1,8 @@
 
 # LAMMPS
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## カレントディレクトリの概略
 
 - [in.2dLJ](./in.2dLJ)

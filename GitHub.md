@@ -1,6 +1,8 @@
 
 # はじめてのGit
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## Gitを使ったプロジェクト管理の手順
 
 1. 自身のPCにGitで管理するディレクトリを用意する

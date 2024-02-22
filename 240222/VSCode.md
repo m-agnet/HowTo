@@ -1,6 +1,8 @@
 
 # はじめてのVisual Studio Code
 
+URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git)
+
 ## インストール方法 
 
 [VSCode公式サイト](https://code.visualstudio.com)
