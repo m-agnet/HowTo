@@ -6,7 +6,7 @@
 - vmd
 - vscode
 - tex関連
-- Github
+- GitHub
 - drawio
 - ffmpeg
 
