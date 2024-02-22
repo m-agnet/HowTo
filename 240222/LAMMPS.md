@@ -3,11 +3,17 @@
 
 ## インストール方法
 
-Homebrewを用いる. 
+CUIのソフトを簡単に管理できるというHomebrewを用いる. 
 
-Homebrewのインストールはネットで調べると簡単にできる.
+[Homebrewのインストール](https://brew.sh)自体はネットで調べると実行に時間がかかるが簡単にできる.
 
-その上でターミナルに以下を実行.
+どこでも良いのでターミナルに以下を実行.
+
+```zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+その上でどこでも良いのでターミナルに以下を実行.
 
 ```zsh
 brew install lammps

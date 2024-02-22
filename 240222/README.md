@@ -15,14 +15,15 @@
 
 - LAMMPSとVMDを用いた数値実験の流れを紹介
 - 初期化されたMacのセットアップ
+  - homebrewとVSCodeのインストール
 - LAMMPSとVMDのインストール
   - LAMMPSのexampleをデスクトップにコピー
-- LAMMPSを動かしてみる
+- LAMMPSを使ってみる
 
 ## 到達目標
 
 - LAMMPSとVMDのインストールをしているところを眺めること. 
-- in.meltをexampleから引っ張ってきて, LAMMPSで実行, VMDで動きを確認するところまでができること. 
+- in.meltをexampleから引っ張ってきて適切に編集, LAMMPSで実行して, VMDで動きを確認するところまでができること. 
 
 ## 他にも教えられること
 

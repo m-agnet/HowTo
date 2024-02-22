@@ -3,9 +3,8 @@
 
 ## インストール方法 
 
-```zsh
-brew install visual-studio-code
-```
+[VSCode公式サイト](https://code.visualstudio.com)
+
 
 ## 初期設定
 
@@ -56,3 +55,5 @@ code .
 ## 参考
 
 [Visual Studio Code（VSCode）の設定をしてみた](https://qiita.com/TS1engineer/items/1b54f65ee87cb49582f5)
+
+[homebrew-caskとは](https://qiita.com/swallowtail62/items/61244ea3c7d00f692823)
