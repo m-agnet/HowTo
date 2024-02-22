@@ -13,4 +13,4 @@
   - 設定したパラメータごとにlammpsファイルを編集して繰り返し実行させることができる.
     - 保管される出力ファイル名の頭にはそれぞれ設定したパラメータと実験日時が追記される.
 - [makemovie.jl](./makemovie.jl)
-  - 使い方は[makemovie.md](../HowTo/makemovie.md)に記述.
+  - 使い方は[makemovie.md](../../HowTo/makemovie.md)に記述.
