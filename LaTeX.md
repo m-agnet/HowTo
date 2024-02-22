@@ -1,4 +1,4 @@
-# LaTeX について
+# はじめてのLaTeX
 
 ## 対象読者
 
@@ -387,6 +387,10 @@ VScodeの左下にある「管理->ユーザスニペット」からlatex.json�
 [latex-の数式環境って種類が多い](https://qiita.com/Yarakashi_Kikohshi/items/ef693d7abb195c55af7a#latex-の数式環境って種類が多い "https://qiita.com/Yarakashi_Kikohshi/items/ef693d7abb195c55af7a#latex-の数式環境って種類が多い")
 
 [LaTeX で物理学徒が最低限知っておくべきこと・私が気を付けていること](https://qiita.com/yetput_ikura/items/912cc9d9496ebefcccd9 "https://qiita.com/yetput_ikura/items/912cc9d9496ebefcccd9")
+
+## リンク
+
+[はじめてのLaTeX](https://qiita.com/m-agnet/items/664ea5532db5db4144fe)
 
 ## 
 

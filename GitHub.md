@@ -1,5 +1,5 @@
 
-# Git使い方
+# はじめてのGit
 
 ## Gitを使ったプロジェクト管理の手順
 
@@ -81,3 +81,7 @@ git add -u
 git commit -m "cleanup"
 git push
 ```
+
+## リンク
+
+[Git使い方](https://qiita.com/m-agnet/items/7bfd28c5e8a30bc7bd30)

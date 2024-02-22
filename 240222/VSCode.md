@@ -1,5 +1,5 @@
 
-# Visual Studio Code
+# はじめてのVisual Studio Code
 
 ## インストール方法 
 
