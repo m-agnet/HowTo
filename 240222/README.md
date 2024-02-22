@@ -13,9 +13,9 @@
 
 ## 本日の流れ
 
-- LAMMPSとVMDを用いた数値実験の流れを紹介
 - 初期化されたMacのセットアップ
-  - homebrewとVSCodeのインストール
+  - VSCodeとhomebrewのインストール
+- LAMMPSとVMDを用いた数値実験の流れを紹介
 - LAMMPSとVMDのインストール
   - LAMMPSのexampleをデスクトップにコピー
 - LAMMPSを使ってみる
