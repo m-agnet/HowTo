@@ -27,7 +27,7 @@ brew install lammps
 
 とりあえず実行をするには, 以下のコマンドをLAMMPSファイルのディレクトリ上で走らせる.
 
-※LAMMPSファイルは「in.」 が接頭についている.
+※LAMMPSファイルには「in.」 が接頭についている.
 
 ```zsh
 mpirun -n 4 lmp_mpi -log output.log -in in.input
