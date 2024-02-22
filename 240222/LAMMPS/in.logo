@@ -71,7 +71,7 @@ neigh_modify	delay 0 every 1 check yes
 velocity	all create 2.0 87287 loop geom # 全原子の速度を初期化.
 
 
-thermo		100 # 熱力学情報の出力頻度を設定
+thermo		100 # 熱力学情報の出力頻度を設定.
 dump		1 all atom 20 output.lammpstrj # 20タイムステップごとに原子位置をoutput.lammpstrjというファイルにダンプ
 
 # 100ステップのシミュレーションを積分せずに実行して"一時停止"させる

@@ -1,0 +1,66 @@
+LAMMPS (2 Aug 2023)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+# 3d Lennard-Jones melt
+
+units		lj # LJ単位系.
+atom_style	atomic # 粒子.
+
+lattice		fcc 0.8442 # 粒子の初期配置.
+Lattice spacing in x,y,z = 1.6795962 1.6795962 1.6795962
+region		box block 0 10 0 10 0 10 # 系の領域設定.
+create_box	1 box # 系の生成.
+Created orthogonal box = (0 0 0) to (16.795962 16.795962 16.795962)
+  1 by 2 by 2 MPI processor grid
+create_atoms	1 box # 粒子の生成.
+Created 4000 atoms
+  using lattice units in orthogonal box = (0 0 0) to (16.795962 16.795962 16.795962)
+  create_atoms CPU = 0.000 seconds
+mass		1 1.0 # 粒子の設定.
+
+velocity	all create 3.0 87287 loop geom # 全原子の速度を初期化.
+
+# 粒子-粒子間相互作用ポテンシャル
+pair_style	lj/cut 2.5
+pair_coeff	1 1 1.0 1.0 2.5
+
+# 高速化コマンド. neighbor list に入れる距離指定.
+neighbor	0.3 bin
+neigh_modify	every 20 delay 0 check no
+
+fix		1 all nve # NVEアンサンブルでシミュレーション.
+
+# 出力コマンド
+# lammpstrj
+# dump		id all atom 50 melt.dump
+dump		id all atom 50 output.lammpstrj # VMDでは拡張子「.lammpstrj」を認識する.
+
+# image
+dump		2 all image 25 image.*.jpg type type 		axes yes 0.8 0.02 view 60 -30
+dump_modify	2 pad 3
+
+# movie
+dump		3 all movie 25 movie.mpg type type 		axes yes 0.8 0.02 view 60 -30
+dump_modify	3 pad 3
+
+thermo		50 # 熱力学情報の出力頻度を設定.
+# run		250 # 実行
+run		2500 # 実行. 10倍にした.
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 20 steps, delay = 0 steps, check = no
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 2.8
+  ghost atom cutoff = 2.8
+  binsize = 1.4, bins = 12 12 12
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut, perpetual
+      attributes: half, newton on
+      pair build: half/bin/atomonly/newton
+      stencil: half/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 2.706 | 2.706 | 2.706 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   3             -6.7733681      0             -2.2744931     -3.7033504    
+ERROR on proc 0: Support for writing movies not included (src/dump_movie.cpp:60)
+Last command: run		2500 # 実行. 10倍にした.
