@@ -27,7 +27,6 @@
 
 ## 他にも教えられること
 
-- VSCode
 - LaTeX
 - GitHub
 
