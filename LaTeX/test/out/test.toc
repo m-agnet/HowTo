@@ -1,0 +1,1 @@
+\providecommand \autonum@processReference [2]{}

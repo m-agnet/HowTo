@@ -270,7 +270,7 @@ if ($^O eq 'linux') {
             "tools": [
                 "latexmk"
             ]
-        },
+        }
     ],
 
     // ビルドのレシピに使われるパーツ
@@ -282,10 +282,9 @@ if ($^O eq 'linux') {
                 "-silent",
                 "-outdir=%OUTDIR%",
                 "%DOC%"
-            ],
-        },
-    ],
-
+            ]
+        }
+    ]
 }
 ```
 
@@ -352,7 +351,7 @@ VScodeの左下にある「管理->ユーザスニペット」からlatex.json�
                 "colorlinks=true,",
                 "linkcolor=blue,",
                 "citecolor=red,",
-                "urlcolor=magenta",,
+                "urlcolor=magenta",
             "}",
             "% 数式相互参照",
             "\\usepackage{cleveref}",
