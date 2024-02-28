@@ -382,6 +382,233 @@ VScodeの左下にある「管理->ユーザスニペット」からlatex.json�
 }
 ```
 
+### jlisting.sty ソースコードを記載する時の設定
+
+例えば以下の場所に保存する.
+
+```
+/usr/local/texlive/2023/texmf-dist/tex/latex/listing/listing.sty
+```
+
+```zsh
+\NeedsTeXFormat{LaTeX2e}
+\def\filedate{2006/02/20}
+\def\fileversion{0.2}
+\ProvidesPackage{jlisting}[\filedate\space\fileversion\space(Thor)]
+%
+\newcount\lst@nextchar
+\let\lst@@ProcessSpace\lst@ProcessSpace
+\def\lst@ProcessSpace#1{%
+   \lst@check@chartype{#1}%
+      \lst@@ProcessSpace
+      \lst@whitespacetrue}
+\let\lst@@ProcessLetter\lst@ProcessLetter
+\def\lst@ProcessLetter#1#2{%
+   \lst@check@chartype{#2}%
+      {\lst@@ProcessLetter{#1}}%
+      \relax}
+\let\lst@@ProcessDigit\lst@ProcessDigit
+\def\lst@ProcessDigit#1#2{%
+   \lst@check@chartype{#2}%
+      {\lst@@ProcessDigit{#1}}%
+      \relax}
+\let\lst@@ProcessOther\lst@ProcessOther
+\def\lst@ProcessOther#1#2{%
+   \lst@check@chartype{#2}%
+      {\lst@@ProcessOther{#1}}%
+      \relax}
+\let\lst@@ProcessTabulator\lst@ProcessTabulator
+\def\lst@ProcessTabulator#1{%
+   \lst@check@chartype{#1}%
+      \lst@@ProcessTabulator
+      \relax}
+\def\lst@check@chartype#1#2#3{%
+   \edef\@tempa{\lst@nextchar=`\string#1\relax}%
+   \afterassignment\remove@to@nnil
+   \@tempa\@nnil
+   #2%
+   \ifnum\lst@nextchar<\@cclvi
+      #3%
+   \else
+      \lst@ifletter \else \lst@OutputOther \fi
+      \lst@whitespacefalse
+      \expandafter\lst@AppendJchar
+   \fi
+   #1}
+\def\lst@AppendJchar#1#2{%
+   \lst@check@chartype{#2}%
+      {\advance\lst@length\@ne\lst@Append{#1}}%
+      \relax}
+\def\lst@check@chartype@BOL#1{%
+   \edef\@tempa{\lst@nextchar=`\string#1\relax}%
+   \afterassignment\remove@to@nnil
+   \@tempa\@nnil
+   \ifnum\lst@nextchar<\@cclvi\else
+      \lst@whitespacefalse
+      \expandafter\lst@AppendJchar
+   \fi
+   #1}
+\def\lst@InputListing#1{%
+   \begingroup
+      \lsthk@PreSet \gdef\lst@intname{#1}%
+      \expandafter\lstset\expandafter{\lst@set}%
+      \lsthk@DisplayStyle
+      \catcode\active=\active
+      \lst@Init\relax \let\lst@gobble\z@
+      \lst@SkipToFirst
+      \lst@ifprint \def\lst@next{\lst@get@filecontents{#1}}%
+      \else        \let\lst@next\@empty
+      \fi
+      \lst@next
+      \lst@DeInit
+   \endgroup}
+\newread\lst@inputfile
+\def\lst@get@filecontents#1{%
+   \let\lst@filecontents\@empty
+   \openin\lst@inputfile=#1\relax
+   \let\@lst@get@filecontents@prevline\relax
+   \lst@get@filecontents@loop
+   \closein\lst@inputfile
+   \lst@filecontents\empty}
+\def\lst@get@filecontents@loop{%
+   \read\lst@inputfile to\@lst@get@filecontents@currline
+   \ifx\@lst@get@filecontents@prevline\relax\else
+      \expandafter\expandafter\expandafter\def
+      \expandafter\expandafter\expandafter\lst@filecontents
+      \expandafter\expandafter\expandafter{%
+         \expandafter\lst@filecontents\@lst@get@filecontents@prevline}%
+   \fi
+   \let\@lst@get@filecontents@prevline\@lst@get@filecontents@currline
+   \ifeof\lst@inputfile\else
+      \expandafter\lst@get@filecontents@loop
+   \fi}
+%%% [$B$3$N=hM}$b!$AjEv6/0z$G$9!%(B]
+\def\lst@BOLGobble{%
+   \ifnum\lst@gobble>\z@
+      \@tempcnta\lst@gobble\relax
+      \expandafter\lst@BOLGobble@
+   \else
+      \expandafter\lst@check@chartype@BOL
+   \fi}
+\def\lst@BOLGobble@#1{%
+   \let\lst@next#1%
+   \ifx \lst@next\relax\else
+   \ifx \lst@next\lst@MProcessListing\else
+   \ifx \lst@next\lst@ProcessFormFeed\else
+   \ifx \lst@next\lstenv@backslash
+      \let\lst@next\lstenv@BOLGobble@@
+   \else
+      \let\lst@next\lst@BOLGobble@@
+      \ifx #1\lst@ProcessTabulator
+         \advance\@tempcnta-\lst@tabsize\relax
+         \ifnum\@tempcnta<\z@
+            \lst@length-\@tempcnta \lst@PreGotoTabStop
+         \fi
+      \else
+         \edef\@tempa{\lst@nextchar=`\string#1\relax}%
+         \@tempa
+         \ifnum\lst@nextchar<\@cclvi\else
+            \advance\@tempcnta\m@ne
+         \fi
+         \advance\@tempcnta\m@ne
+      \fi
+   \fi \fi \fi \fi
+   \lst@next}
+\def\lst@BOLGobble@@{%
+   \ifnum\@tempcnta>\z@
+      \expandafter\lst@BOLGobble@
+   \else
+      \expandafter\lst@check@chartype@BOL
+   \fi
+}
+%
+%    \begin{$B=$@5;v9`(B}{1.3}
+% $B$A$g$C$H$7$?=$@5(B
+\gdef\lst@breakProcessOther#1{\lst@ProcessOther#1}
+% $B%=!<%9%3!<%IL\<!$K$*$1$kJ8;z$HHV9f$N6u$-(B
+\let \l@lstlisting = \l@figure
+% $B%-%c%W%7%g%s$H%=!<%9%3!<%IL\<!$KBP$9$kF|K\8lBP1~(B
+\def\lstlistingname{$B%=!<%9%3!<%I(B}
+\def\lstlistlistingname{$B%=!<%9%3!<%IL\<!(B}
+%    \end{$B=$@5;v9`(B}
+\endinput
+% 
+%#!platex
+\documentclass[papersize]{jsarticle}
+% Macros
+\IfFileExists{dvipdfmx.def}{%
+  \usepackage[dvipdfmx]{color,graphicx}%
+}{%
+  \usepackage[dvipdfm]{color,graphicx}%
+}
+\usepackage{listings}[2004/09/07]
+\usepackage{jlisting}[2006/02/20]
+\usepackage{url} 
+\usepackage{verbatim}
+
+\makeatletter
+% Original Macros
+\def\email#1{\gdef\@email{\texttt{#1}}}
+\def\homepage#1{\gdef\@homepage{\texttt{#1}}}
+\def\mac#1{\textsf{#1}}
+\def\URL#1{\texttt{#1}}
+\def\src#1{\texttt{#1}}
+
+% Dvipdfmx.def 
+\def\dvipdfmxDefi{http://tex.dante.jp/ok/dvipdfmx/}
+\def\dvipdfmxDefii{http://ftp.ktug.or.kr/KTUG/dvipdfmx/contrib/latex/}
+
+\IfFileExists{dvipdfmx.def}{%
+   \let \IfDvipdfmxDef = \empty \relax}{%
+   \typeout{^^Jget dvipdfmx.def at \dvipdfmxDefi^^J
+            or \dvipdfmxDefii^^J}%
+   \def\IfDvipdfmxDef{Get \src{dvipdfmx.def} at \URL \dvipdfmxDefii \\ 
+      or \URL \dvipdfmxDefi.}%
+}
+
+% Author Info
+\author   {Th\'or Watanabe\thanks \@email \space \thanks \@homepage}
+\title    {\mac{jlisting.sty}\\
+          ---Japanese Localized Patch File of \mac{listings}---}
+\email    {thor@tex.dante.jp}
+\homepage {http://tex.dante.jp/typo/}
+\date     {2006/02/20}
+
+\makeatother
+
+\begin{document}
+\maketitle
+%\IfDvipdfmxDef
+
+\section{$B$A$g$C$H$7$?@bL@(B}% Short Description
+ 
+$B1|B<@2I';a$N7G<(HD$N!VHFMQE*$JIbF0BN!W$H$$$&0lO"$N=q$-9~$_$+$i(B
+$BE>:\$7$^$7$?!#(B
+
+\begin{quote}
+ \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21172.html}\\
+ \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21184.html}\\
+ \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21189.html}\\
+ \url{http://http://cise.edu.mie-u.ac.jp/~okumura/texfaq/qa/21197.html}
+\end{quote}
+
+ Copyright $B$O5H1JE/H~;a$K$"$k$N$@$H;W$$$^$9!%(B
+ 
+\section{$B99?7MzNr(B}% ChageLogs
+
+\begin{description}
+ \item[ver.~0.1 (2004/03/24)]
+   $B$H$j$"$($:8x3+!%(B
+ \item[ver.~0.2 (2006/02/20)] 
+   \verb|\lst@breakProcessOther| $BL?Na$NDj5A$NDI2C!%(B
+\end{description}
+
+\section{$B%=!<%9%3!<%I(B}
+\par\narrowbaselines
+\verbatiminput{jlisting.sty}
+\end{document}
+```
+
 ## 参考になる記事
 
 [pysics パッケージの使い方(オススメ!!)](http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/physics/physics.pdf)

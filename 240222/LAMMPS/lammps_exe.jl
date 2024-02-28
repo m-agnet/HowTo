@@ -9,12 +9,12 @@ using Glob # *を使ってパターンマッチングするためのライブラ
 using Dates # 日時を取得するためのライブラリ.
 
 # lammpsfile=glob("in.*")[1] # 実行ファイルを指定.
-lammpsfile="in.melt_mod" # 実行ファイルを指定.
+lammpsfile="in.melt_mod4" # 実行ファイルを指定.
 file_extensions = ["log", "yaml", "lammpstrj"] # 扱う出力ファイルの種類を指定.
 outputpath = "/Users/2023_2gou/Desktop/r_yamamoto/HowTo/240222/LAMMPS/outputdir" # outputdirまでの絶対パス.
 
 n = string(now())   # 実験日時の記録
-remark = "melt_mod"
+remark = "melt_mod4"
 run(`mpirun -n 4 lmp_mpi -log output.log -in $(lammpsfile)`) # lammpsの実行.
 
 # 出力ファイルの保管.
