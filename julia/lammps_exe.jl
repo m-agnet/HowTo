@@ -3,6 +3,14 @@ lammpsファイルの実行及び出力ファイルの保管.
 - lammpsファイル実行時に出力される*.logファイル,*.yamlファイルが指定した同一フォルダに,それぞれのフォルダを作成して保管される.
 - lammpsファイルと同一ディレクトリにあるoutputファイルは削除.
 - outputdirまでの絶対パスを任意に変更して使用してください.
+- 以下の構成でoutputディレクトリ(名前もそのまま)を作成してから実行してください.
+- dir (任意のディレクトリ)
+    - in.file (任意のlammpsファイル)
+    - lammps_exe.jl
+    - outputdir
+        -lammpstrjdir
+        -logdir
+        -yamldir
 =#
 
 using Glob # *を使ってパターンマッチングするためのライブラリ.
