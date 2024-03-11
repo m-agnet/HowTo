@@ -16,8 +16,7 @@ lammpsファイルの実行及び出力ファイルの保管.
 using Glob # *を使ってパターンマッチングするためのライブラリ.
 using Dates # 日時を取得するためのライブラリ.
 
-# lammpsfile=glob("in.*")[1] # 実行ファイルを指定.
-lammpsfile="in.melt_mod4" # 実行ファイルを指定.
+lammpsfile=glob("in.*")[1] # 実行ファイルを指定.
 file_extensions = ["log", "yaml", "lammpstrj"] # 扱う出力ファイルの種類を指定.
 outputpath = "/Users/2023_2gou/Desktop/r_yamamoto/HowTo/240222/LAMMPS/outputdir" # outputdirまでの絶対パス.
 
