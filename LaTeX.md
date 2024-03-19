@@ -143,10 +143,10 @@ URL: [https://github.com/m-agnet/HowTo.git](https://github.com/m-agnet/HowTo.git
 ## 以上のusepackage群の思想
 
 - 数式全てに番号を振ることはせずに, 相互参照をする数式にだけ自動で番号が割り振られるようにしている. 
-  - そのため, `\algin`と`\align*`を使い分けるといったことがない.
+  - そのため, `\algin`と`\align*`を使い分けるといったことがない. 常に`\align`.
   - また, 資料が肥大化した時に簡潔で見やすいものになる.
 - `\usepackage{pysics}`を用いて楽に執筆することを推奨している.
-  - 誰かと共同編集するのであれば, その限りではない.
+
 
 
 ## VScodeでの執筆をより快適にするために
