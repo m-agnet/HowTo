@@ -76,9 +76,10 @@ git pull origin main
 
 1. Github で空のリモートレポジトリを作成する. (リポジトリ名はローカルリポジトリ名に合わせる.)
 1. `git remote add origin https://github.com/ユーザ名/リモートレポジトリ名.git`
-2. `git add *`
-3. `git commit -m "Initial"`
-4. `git push -u origin main`
+2. `git init`
+3. `git add *`
+4. `git commit -m "Initial"`
+5. `git push -u origin main`
 
 ## ローカルリポジトリでのファイル削除をリモートに反映させる
 
