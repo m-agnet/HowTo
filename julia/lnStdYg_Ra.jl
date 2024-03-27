@@ -1,4 +1,4 @@
-# 標準偏差グラフ描画セル
+# 標準偏差グラフ描画セル, 横軸Ra
 # パッケージ
 using Plots
 using YAML
